@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calculator</title>
+</head>
+
+<body>
+
+  <div id="postContainer">
+
+  </div>
+
+  <input type="text" id="inputBox" placeholder="Enter the post here" />
+
+  <button id="postBtn">Post</button>
+
+</body>
+
+
+
+<script>
+
+  const apiUrl = "https://5d6a78f96b97ef00145b7a3d.mockapi.io/api/users";
+
+  const postContainer = document.getElementById("textContainer");
+
+  const postBtn = document.getElementById("postBtn");
+
+  const inputBox = document.getElementById("inputBox");
+
+
+  postBtn.addEventListener("click", function () {
+
+    newPost()
+
+
+  });
+
+
+  function one(textValue, nameId) {
+
+    const body = document.body;
+
+    const postText = document.createElement("h4");
+
+    postText.setAttribute("id", nameId);
+
+    postText.textContent = textValue;
+
+
+    body.append(postText);
+
+  }
+
+
+ 
+  function fetchPosts() {
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function () {
+
+      if (xhr.status === 200) {
+        const postArr = JSON.parse(xhr.response);
+
+
+        for (data of postArr) {
+          // console.log(data);
+          one(data.name, name._id);
+        }
+
+      }
+      else {
+        console.log("ERROR!");
+      }
+    };
+
+
+
+    xhr.open("GET", apiUrl);
+    xhr.send();
+  }
+
+  fetchPosts()
+
+
+  function newPost() {
+    const object = { name: inputBox.value };
+
+    const jsonString = JSON.stringify(object);
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        const object = JSON.parse(xhr.response);
+        one(object.name, object._id);
+      }
+      else {
+        console.log("FAILED TO CREATE POST..");
+      }
+    };
+
+    xhr.open("POST", apiUrl);
+
+    xhr.setRequestHeader("content-type", "application/json");
+    
+    xhr.send(jsonString);
+  }
+
+
+</script>
+
+</html>
