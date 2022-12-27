@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <style>
+     /* form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     } */
+
+     .container{
+       display: flex;
+       flex-direction: column;
+       width: 25vw;
+       margin-right: 50%;
+       position: fixed;
+     }
+
+h1, p{
+    text-align: center;
+}
+
+input {
+  margin: 0.25em 0em 1em 0em;
+  outline: none;
+  padding: 0.5em;
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 0.25em;
+  color: black;
+}
+
+#role{
+    margin: 0.25em 0em 1em 0em;
+  outline: none;
+  padding: 0.5em;
+  border: none;
+  background-color: rgb(225, 225, 225);
+  border-radius: 0.25em;
+  color: black; 
+}
+
+input[type=submit] {
+  padding: 0.75em;
+  border: none;
+  outline: none;
+  background-color: rgb(68, 18, 232);
+  color: white;
+  border-radius: 0.25em;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(41, 4, 164);
+}
+
+/* f */
+
+.myDiv{
+	display:none;
+    padding:10px;
+    margin-top:20px;
+    margin-left: 50%;
+}  
+#showOne{
+    border:1px solid red;
+    width: 25%;
+}
+#showTwo{
+    border:1px solid green;
+    width: 25%;
+}
+#showThree{
+    border:1px solid blue;
+    width: 25%;
+}
+
+
+    </style>
+</head>
+<body>
+    <form id="reg-form" autocomplete="off">
+        <div class="container">
+            <h1>Register</h1>
+            <p>Kindly fill in this form to register.</p>
+
+            <label for="username"><b>Username</b></label> 
+            <input type="text" placeholder="Enter username."  name="username" id="name"  required />
+              
+              <label for="pwd"><b>Password</b></label>
+              <input  type="password" placeholder="Enter Password" name="pwd" id="pwds" required />
+              
+              
+              <label for="pwd"><b>confirmPassword</b></label>
+              <input  type="password" placeholder="Enter Password" name="cpwd" id="cpwd" required />
+
+              
+              <label for="pwd"><b>User Type</b></label>
+              <select id="role">
+                <option>Select Option</option>
+                <option value="One">student</option>
+                <option value="Two">teacher</option>
+                <option value="Three">admin</option>
+            </select>
+                <input type="submit" value="submit Form" onclick="registerUser()"/>
+          </div>
+    </form>
+    <div id="showOne" class="myDiv">
+	
+    
+        <div id="top">
+        
+            <form id="stu">
+              
+                <label>Name</label>
+                <input type="text" name="field1" id="user" placeholder="Username"/><br><br>
+              
+             
+                <label>StudentId</label>
+                <input type="number" name="field2" id="stuId"  placeholder="StudentId"/><br><br>
+              
+          
+                <label>DateOfBirth</label>
+                <input type="date" id="date" name="trip-start"
+                min="1990-01-01" max="2030-12-31"><br><br>
+            
+          
+                  <label>EMAIL ID</label>
+                  <td><input type="text" name="Email_Id" id="email" maxlength="100" /><br><br>
+                
+                   
+                  <label>MOBILE NUMBER</label>
+                  <input type="text" name="Mobile_Number" id="mobile" maxlength="10" /><br><br>
+                  
+                   
+                  <label>GENDER</label>
+                  Male <input type="radio" name="Gender" id="male" value="Male" />
+                  Female <input type="radio" name="Gender"  id="female" value="Female" /><br><br>
+                  
+                  
+                  
+
+                  
+                  <label>ADDRESS</label>
+                  <textarea name="Address" rows="4"  id="address" cols="30"></textarea><br><br>
+                
+               
+                             
+                  <label>PIN CODE</label>
+                  <td><input type="text" name="Pin_Code" id="pincode" maxlength="6" /><br><br>
+                  
+
+                    
+                  <label>Branch</label>
+                  <input type="text" name="branch" id="branch" maxlength="30" /><br><br>
+                  
+                   
+                  <label>Section</label>
+                  <input type="text" name="section" id="section"/><br><br>
+                  
+          
+                  <input type="submit" value="submit Form" onclick="update()"/>
+          
+                  </form>
+              </div>
+        
+        </div>
+        
+        <div id="showTwo" class="myDiv">
+               
+        <div id="top">
+        
+            <form id="stu">
+              
+                <label>Name</label>
+                <input type="text" name="field1" id="username" placeholder="Username"/><br><br>
+              
+             
+                <label>TeacherId</label>
+                <input type="number" name="field2" id="studentId"  placeholder="StudentId"/><br><br>
+              
+          
+                <label>DateOfBirth</label>
+                <input type="date" id="data" name="trip-start"
+                min="1990-01-01" max="2030-12-31"><br><br>
+            
+          
+                  <label>EMAIL ID</label>
+                  <td><input type="text" name="Email_Id" id="emailId" maxlength="100" /><br><br>
+                
+                   
+                  <label>MOBILE NUMBER</label>
+                  <input type="text" name="Mobile_Number" id="mobileN" maxlength="10" /><br><br>
+                  
+                   
+                  <label>GENDER</label>
+                  Male <input type="radio" name="Gender" id="male" value="Male" />
+                  Female <input type="radio" name="Gender"  id="female" value="Female" /><br><br>
+                  
+                  
+                  <label>ADDRESS</label>
+                  <textarea name="Address" rows="4"  id="address" cols="30"></textarea><br><br>
+                
+               
+                       
+                             
+                  <label>PIN CODE</label>
+                  <td><input type="text" name="Pin_Code" id="pincode" maxlength="6" /><br><br>
+                  
+                  
+                  <label>Qualification</label>
+                  <input type="text" name="branch" id="qual" maxlength="30" /><br><br>
+                  
+                   
+                  <label>Department</label>
+                  <input type="text" name="section" id="department"   /><br><br>
+                  
+          
+                  <input type="submit" value="submit Form" onclick="update()"/>
+          
+                  </form>
+              </div>
+        
+        </div>
+        
+    <script>
+                 
+                     
+        const form = document.getElementById("reg-form")
+        form.addEventListener('submit',registerUser)
+        
+
+        function registerUser(event) {
+            console.log("inside function")
+
+            event.preventDefault()
+        
+            console.log("working")
+        
+            const username = document.getElementById("name").value;
+
+            console.log("qwerty",username)
+        
+        
+            const role = document.getElementById('role').value;
+        console.log("asas",role)
+
+        
+        const password = document.getElementById("pwds").value;
+            console.log("asdf",password)
+             
+            
+        
+        const confirmpassword = document.getElementById("cpwd").value;
+            console.log("asdf",confirmpassword)
+
+            if(password == confirmpassword){
+
+
+            
+                fetch('http://localhost:9000/section/cre',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify({
+                        role,
+                        username,
+                        password
+                      
+                    })
+        
+                }).then((res)=>res.json())
+               
+                console.log(result)
+
+            }
+            else
+            {
+                alert("password and confirmpassword is not equal")
+            }
+        
+        
+        }
+        
+        
+        
+        $(document).ready(function(){
+            $('#role').on('change', function(){
+                var demovalue = $(this).val(); 
+                $("div.myDiv").hide();
+                $("#show"+demovalue).show();
+            });
+        });
+        
+   
+
+
+
+  
+      const name = document.getElementById("user").value;
+
+      console.log("qwerty",name)
+  
+  
+      const Id = document.getElementById('stuId').value;
+       console.log("asas",Id)
+
+     const DateOfBirth = document.getElementById("date").value;
+      console.log("asdf",DateOfBirth)
+       
+      
+    const email = document.getElementById("email").value;
+      console.log("asdf",email)
+
+         
+    const gender = document.getElementById("male").value;
+  console.log("asdf",gender)
+
+  const female = document.getElementById("male").value;
+      console.log(female)
+  
+  const address = document.getElementById("address").value;
+  console.log(address)
+
+  const MobileNumber  = document.getElementById("mobile").value;
+  console.log(MobileNumber)
+
+  const pincode = document.getElementById("pincode").value;
+  console.log(pincode)
+
+  const branch = document.getElementById("branch").value;
+  console.log(branch)
+
+  const section = document.getElementById("section").value;
+  console.log(section)
+
+
+  
+
+
+      
+          fetch('http://localhost:9000/marker/po',{
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body:JSON.stringify({
+                  name,
+                  Id,
+                  DateOfBirth,
+                  email,
+                  gender,
+                  address,
+                  MobileNumber,
+                  pincode,
+                  branch,
+                  section
+                
+              })
+  
+          }).then((res)=>res.json())
+
+
+        
+
+
+
+
+     
+        </script>
+
+
+<!-- 
+
+const name = document.getElementById("user").value;
+
+console.log("qwerty",name)
+
+
+const Id = document.getElementById('stuId').value;
+ console.log("asas",role)
+
+const DateOfBirth = document.getElementById("date").value;
+console.log("asdf",date)
+ 
+
+const  emailId = document.getElementById("email").value;
+console.log("asdf",email)
+
+   
+const gender = document.getElementById("male").value;
+
+console.log("asdf",male)
+
+const female = document.getElementById("male").value;
+
+const address = document.getElementById("address").value;
+
+const city = document.getElementById("city").value;
+
+const pincode = document.getElementById("pincode").value;
+
+
+const Department = document.getElementById("branch").value;
+
+
+const Qualification = document.getElementById("section").value;
+
+
+
+
+
+
+
+    fetch('http://localhost:9000/section/cre',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+            name,
+            teacherId,
+            DateOfBirth,
+            email,
+            gender,
+            address,
+            city,
+            pincode,
+            Department,
+            Qualification
+          
+        })
+
+    }).then((res)=>res.json())
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+</html>
+
+
+
+

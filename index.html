@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+body 
+{
+  font-family:Arial; 
+  background: -webkit-linear-gradient(to right, #155799, #159957); 
+  background: linear-gradient(to right, #155799, #159957); 
+  color:whitesmoke;
+}
+
+input[type=text], input[type=password]{
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+  }
+  input[type=submit] {
+    background-color: #030804;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 100%;
+    font-size: 18px;
+  }
+
+button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  form{
+    width:35rem;
+    margin: auto;
+    color:whitesmoke;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(11, 15, 13, 0.582);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+h1{
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <form id="login" autocomplete="off">
+    <div class="mainContainer">
+        <h1>Login</h1>
+        <!-- Username -->
+        <label for="username">Your username</label>
+        <!-- Make sure to put "required" for both the input fields -->
+        <input type="text" placeholder="Enter Username" name="username" id="uname" required>
+
+        <br><br>
+
+        <!-- Password -->
+        <label for="pswrd">Your password</label>
+        <input type="password" placeholder="Enter Password" name="pswrd" id="pass" required>
+
+             <br><br>
+
+           <input type="submit" value="submit Form"  onclick="loginForm()"/>
+
+    </div>
+</form>
+<script>
+const form = document.getElementById('login')
+form.addEventListener('submit',loginForm)
+
+ function loginForm(event){
+    console.log("inside function")  
+
+    event.preventDefault()   
+    const username = document.getElementById('uname').value;  
+    console.log(username)
+
+    const password = document.getElementById('pass').value;   
+    console.log(password)
+                                                    
+     fetch('http://localhost:9000/section/login',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'  
+        },
+        body:JSON.stringify({
+            username,
+            password
+        })
+
+    }).then(response => response.json())
+
+    .then((us)=>{
+
+        if(us.us.role == "One"){
+        location.replace("teacherHome.html")
+    }
+    else if(us.role == "Two"){
+        location.replace("studentHome.html")
+    }
+    else{
+        location.replace("adminHome.html")
+    }
+    });
+
+
+    
+    
+    
+    
+
+                  
+    
+ 
+
+}
+
+</script>
+
+</form>
+</body>
+</html>

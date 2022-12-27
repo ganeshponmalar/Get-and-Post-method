@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>studentHome</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        font-family: 'poppins','sans-serif';
+        box-sizing: border-box;
+      }
+      .drop{
+        width: 100%;
+        min-height: 100vh;
+        background: #eceaff;
+        color: #525252;
+      }
+      nav{
+        background: #1a1a1a;
+        width: 100%;
+        padding: 10px 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position:relative;
+      }
+      .logo{
+        width: 120px;
+      }
+      .user-pic{
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-left: 30px;
+      }
+      nav ul{
+        width: 100%;
+        text-align: right;
+      }
+      nav ul li{
+        display: inline-block;
+        list-style: none;
+        margin: 10px 20px;
+      }
+      nav ul li a{
+        color: #fff;
+        text-decoration: none;
+      }
+      .sub-menu-wrap{
+        position:absolute;
+        top: 100%;
+        right: 10%;
+        width: 320px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+
+      }
+     .sub-menu-wrap.open-menu{
+        max-height: 400px;
+     }
+      
+      .sub-menu{
+        background: #fff;
+        padding: 20px;
+        margin: 10px;
+      }
+      .user-info{
+        display: flex;
+        align-items: center;
+      }
+      .user-info h3{
+       font-weight: 500;
+      }
+     .user-info img{
+        width: 60px;
+        border-radius: 50%;
+        margin-right: 15px;
+     }
+     .sub-menu hr{
+        border: 0;
+        height: 1px;
+        width: 100%;
+        background: #ccc;
+        margin: 15px 0 10px;
+     }
+     .sub-menu-link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        margin: 12px 0;
+     }
+     .sub-menu-link p{
+        width: 100%;
+     }
+     .sub-menu-link img{
+        width: 40px;
+        background: #e5e5e5;
+        border-radius: 50%;
+        padding: 8px;
+        margin-right: 15px;
+     }
+     .sub-menu-link span{
+        font-size: 10px;
+        transition: transform 0.5s;
+     }
+     .sub-menu-link:hover span{
+        transform: translate(5px);
+     }
+     .sub-menu-link:hover p{
+        font-weight: 600;
+     }
+     
+     #top{
+      width: 25%;
+      height: 50%;
+      border: 2px solid black;
+      margin-left: 50%;
+      margin-top: 3%;
+      background: lightblue;
+      /* display: none ; */
+      
+     }
+     
+     
+     
+           
+    </style>
+</head>
+<body>
+  <div class="drop">
+    <nav>
+        
+        <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+     <img src="C:\Users\ganesan\Desktop\myproject\Images\user.png" class="user-pic" onclick="toggleMenu()">
+
+
+        
+    <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+            <div class="user-info">
+                <img src="C:\Users\ganesan\Desktop\myproject\Images\user.png">
+                <h3>student</h3>
+            </div>
+            <hr>
+            
+          
+                 
+            <a href="#" class="sub-menu-link">
+              <img src="C:\Users\ganesan\Desktop\myproject\Images\profile.png">
+              <p>EditProfile</p>
+              <span>></span>                
+               </a>
+
+
+             
+            <a href="#" class="sub-menu-link">
+                <img src="C:\Users\ganesan\Desktop\myproject\Images\setting.png">
+                <p>setting</p>
+                <span>></span>                
+                 </a>
+
+                  
+            <a href="#" class="sub-menu-link">
+                <img src="C:\Users\ganesan\Desktop\myproject\Images\logout.png">
+                <p>Logout</p>
+                <span>></span>                
+                 </a>
+        </div>
+    </div>
+</nav>
+
+
+
+<div id="top">
+
+  <form id="stu">
+    <tr>
+      <td>Name</td>
+      <input type="text" name="field1" id="user" placeholder="Username"/>
+    </tr><br><br>
+   
+    <tr>
+      <td>StudentId</td>
+      <input type="number" name="field2" id="stuId"  placeholder="StudentId"/>
+    </tr><br><br>
+
+    <tr>
+      <td>DateOfBirth</td>
+      <input type="date" id="date" name="trip-start"
+      min="1990-01-01" max="2030-12-31">
+    </tr><br><br>
+
+
+       <tr>
+        <td>EMAIL ID</td>
+        <td><input type="text" name="Email_Id" id="email" maxlength="100" /></td>
+        </tr><br><br>
+         
+        <tr>
+        <td>MOBILE NUMBER</td>
+        <td>
+        <input type="text" name="Mobile_Number" id="mobile" maxlength="10" />
+        </td>
+        </tr><br><br>
+         
+        
+        <tr>
+        <td>GENDER</td>
+        <td>
+        Male <input type="radio" name="Gender" id="male" value="Male" />
+        Female <input type="radio" name="Gender"  id="female" value="Female" />
+        </td>
+        </tr><br><br>
+         
+        
+        <tr>
+        <td>ADDRESS <br /><br /><br /></td>
+        <td><textarea name="Address" rows="4"  id="address" cols="30"></textarea></td>
+        </tr><br><br>
+         
+        
+        <tr>
+        <td>CITY</td>
+        <td><input type="text" name="City" id="city" maxlength="30" />
+        </td>
+        </tr><br><br>
+         
+
+        <tr>
+        <td>PIN CODE</td>
+        <td><input type="text" name="Pin_Code" id="pincode" maxlength="6" />
+        </td>
+        </tr><br><br>
+         
+        
+        <tr>
+        <td>Branch</td>
+        <td><input type="text" name="branch" id="branch" maxlength="30" />
+        </td>
+        </tr><br><br>
+         
+         
+        <tr>
+        <td>Section</td>
+        <td><input type="text" name="section" id="section"  readonly="readonly" /></td>
+        </tr><br><br>
+
+        <input type="submit" value="submit Form" onclick="update()"/>
+
+        </form>
+    </div>
+
+  </div>
+     
+
+
+
+
+    <script>
+
+      const submenu = document.getElementById("subMenu")
+      const studetail = document.getElementById("top")
+       
+       function toggleMenu(){   
+           subMenu.classList.toggle("open-menu")
+           studetail.classList.toggle("top")
+
+       }
+
+const form = document.getElementById("stu")
+        form.addEventListener('submit',update)
+        
+
+        function update(event) {
+            console.log("inside function")
+
+            event.preventDefault()
+        
+            console.log("working")
+        
+            const name = document.getElementById("user").value;
+
+            console.log("qwerty",username)
+        
+        
+            const Id = document.getElementById('stuId').value;
+             console.log("asas",role)
+
+           const date = document.getElementById("date").value;
+            console.log("asdf",date)
+             
+            
+          const email = document.getElementById("email").value;
+            console.log("asdf",email)
+
+               
+          const gender = document.getElementById("male").value;
+         
+        console.log("asdf",male)
+
+        const female = document.getElementById("male").value;
+
+
+        const address = document.getElementById("address").value;
+
+
+        const city = document.getElementById("city").value;
+
+
+        const pincode = document.getElementById("pincode").value;
+      
+
+        const branch = document.getElementById("branch").value;
+
+
+        const section = document.getElementById("section").value;
+
+
+
+        
+
+
+            
+                fetch('http://localhost:9000/marker/edit',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify({
+                        name,
+                        Id,
+                        date,
+                        email,
+                        gender,
+                        address,
+                        city,
+                        pincode,
+                        branch,
+                        section
+                      
+                    })
+        
+                }).then((res)=>res.json())
+
+
+      
+
+
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
